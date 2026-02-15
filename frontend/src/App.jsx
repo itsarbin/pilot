@@ -5,7 +5,7 @@ function App() {
   const [notes, setnotes] = useState([])
 
   function fetchNotes() {
-    axios.get('http://localhost:3000/notes')
+    axios.get('https://pilot-nn2g.onrender.com/notes')
       .then((res) => {
         setnotes(res.data.notes)
       })
@@ -20,7 +20,7 @@ function App() {
     e.preventDefault()
 
     const { title, description } = e.target
-    axios.post('http://localhost:3000/notes', {
+    axios.post('https://pilot-nn2g.onrender.com/notes', {
       title: title.value,
       description: description.value
     })
@@ -33,7 +33,7 @@ function App() {
   }
 
   function handleDelete(noteId) {
-    axios.delete(`http://localhost:3000/notes/${noteId}`)
+    axios.delete(`https://pilot-nn2g.onrender.com/notes/${noteId}`)
       .then((res) => {
         console.log(res.data)
         fetchNotes()
